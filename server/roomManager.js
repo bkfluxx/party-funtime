@@ -182,6 +182,12 @@ class RoomManager {
     const room = this.getRoom(code);
     if (!room) return null;
 
+    if (!gameType || gameType === 'lobby') {
+      room.currentGame = null;
+      room.gameState = null;
+      return room;
+    }
+
     room.currentGame = gameType;
     const playerArray = Array.from(room.players.values());
 
@@ -223,7 +229,9 @@ class RoomManager {
         room.gameState = createFamilyFeudState(playerArray, options);
         break;
       default:
-        return null;
+        room.currentGame = null;
+        room.gameState = null;
+        break;
     }
 
     return room;
