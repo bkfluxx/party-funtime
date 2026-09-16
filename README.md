@@ -41,8 +41,14 @@ A modern, self-hostable real-time party games web application built for remote t
 git clone https://github.com/bkfluxx/party-funtime.git
 cd party-funtime
 
-# Run container
+# Pull image from GitHub Container Registry (GHCR) and start
+docker compose pull
 docker compose up -d
+```
+
+Or run directly without cloning:
+```bash
+docker run -d -p 3000:3000 --name party-funtime ghcr.io/bkfluxx/party-funtime:latest
 ```
 
 Open `http://localhost:3000` in your web browser!

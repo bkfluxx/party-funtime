@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   party-funtime:
+    image: ghcr.io/bkfluxx/party-funtime:latest
     build:
       context: .
       dockerfile: Dockerfile
