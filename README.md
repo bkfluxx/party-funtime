@@ -34,28 +34,26 @@ A modern, self-hostable real-time party games web application built for remote t
 
 ---
 
-## 🚀 Quick Start with Docker Compose
+## 🚀 Quick Start with Docker
 
+### Production (Pulls Pre-built Image from GHCR)
 ```bash
-# Clone repository
-git clone https://github.com/bkfluxx/party-funtime.git
-cd party-funtime
-
-# Pull image from GitHub Container Registry (GHCR) and start
+# Pull and start production image
 docker compose pull
 docker compose up -d
 ```
 
-Or run directly without cloning:
+### Local Development Build
+To build and test changes directly from your local source files:
 ```bash
-docker run -d -p 3000:3000 --name party-funtime ghcr.io/bkfluxx/party-funtime:latest
+docker compose -f docker-compose.dev.yml up --build
 ```
 
 Open `http://localhost:3000` in your web browser!
 
 ---
 
-## 🛠️ Local Development Setup
+## 🛠️ Local Node Setup
 
 ```bash
 # Install dependencies

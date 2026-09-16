@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  party-funtime:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: party-funtime-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
